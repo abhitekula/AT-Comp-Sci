@@ -1,0 +1,10 @@
+package queue;
+
+public class PalinListTester {
+
+	public static void main(String[] args) {
+		String palin="";
+		PalinList p = new PalinList(palin);
+	}
+
+}

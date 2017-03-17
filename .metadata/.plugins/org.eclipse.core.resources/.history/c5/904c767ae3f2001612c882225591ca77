@@ -1,0 +1,51 @@
+package queue;
+
+public class CircularArrayQueue {
+
+	private int head;
+
+	private int tail;
+
+	private int theSize;
+
+	private Object[] elements;
+	
+	public CircularArrayQueue(int capacity) {
+		elements = new Object[capacity];
+		theSize=capacity;
+		head=0;
+		tail=head++;
+	}
+
+	public void add(Object x) {
+		elements[tail]=x;
+		if((tail+1)<elements.length)
+			tail++;
+		else{
+			tail=0;
+			if((head+1)<elements.length)
+				head++;
+			else
+				head=0;
+		}
+		
+	}
+
+	public Object remove() {
+		Object temp=elements[head];
+		elements[head]=null;
+		if((head+1)<elements.length)
+			head++;
+		else{
+			head=0;
+		}
+		return temp;
+	}
+
+	public int size() {
+		return Math.abs(tail-head);
+	}
+
+
+
+}

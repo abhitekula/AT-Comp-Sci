@@ -1,0 +1,30 @@
+package queue;
+
+public class CircularArrayQueue {
+
+	
+	public CircularArrayQueue(int capacity) {
+		
+	}
+
+	public void add(Object x) {
+		
+	}
+
+	public Object remove() {
+		
+	}
+
+	public int size() {
+		
+	}
+
+	private int head;
+
+	private int tail;
+
+	private int theSize;
+
+	private Object[] elements;
+
+}

@@ -1,0 +1,33 @@
+package stack;
+
+import java.util.Stack;
+
+public class PEMDAS {
+
+	private String input;
+	
+	public PEMDAS(){
+		input="";
+	}
+	
+	public PEMDAS(String in){
+		input=in;
+	}
+	
+	public int output(){
+		int out=0;
+		Stack<Integer> nums = new Stack<Integer>();
+		Stack<String> operators = new Stack<String>();
+		String[] in = input.split("");
+		for(int x=0; x<in.length ; x++){
+			
+		}
+		
+		return out;
+	}
+	
+	public static void main(String[] args) {
+		
+	}
+
+}

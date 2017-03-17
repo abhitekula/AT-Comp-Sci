@@ -1,0 +1,46 @@
+package set;
+
+public class Coin {
+	
+	private int year;
+	private String value;
+	
+	public Coin(int year, String value) {
+		this.year = year;
+		this.value = value.toLowerCase();
+	}
+
+	public boolean equals(Coin obj) {
+		if (year/10==obj.getYear()/10 && value.equals(obj.getValue()))
+			return true;
+		else
+			return false;
+	}
+
+	public int hashCode() {
+		return (value.charAt(0)*(year/10))%100;
+	}
+
+	public String toString() {
+		return "Year "  + year + ", " + value;
+	}
+
+	public int getYear() {
+		return year;
+	}
+
+	public void setYear(int year) {
+		this.year = year;
+	}
+
+	public String getValue() {
+		return value;
+	}
+
+	public void setValue(String value) {
+		this.value = value;
+	}
+	
+	
+	
+}

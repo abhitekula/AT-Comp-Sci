@@ -1,0 +1,11 @@
+package queue;
+
+public class PalinListTester {
+
+	public static void main(String[] args) {
+		String palin="";
+		PalinList p = new PalinList(palin);
+		System.out.println(p.getList() + " is a " + p.isPalin() + "palindrome.");
+	}
+
+}

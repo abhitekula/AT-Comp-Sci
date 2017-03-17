@@ -1,0 +1,44 @@
+package stack;
+
+import java.util.LinkedList;
+import java.util.ListIterator;
+
+public class LinkedListImplementation implements myStack{
+	
+	private LinkedList<Object> stack;
+	
+	public LinkedListImplementation(){
+		stack = new LinkedList<Object>();
+	}
+
+	public Object push(Object item) {
+		ListIterator<Object> iter = stack.listIterator();
+		while(iter.hasNext()){
+			iter.next();
+		}
+		iter.add(item);
+		return item;
+	}
+
+	public Object pop() {
+
+	}
+
+	public Object peek() {
+
+	}
+
+	public boolean isEmpty() {
+
+	}
+
+	public int size() {
+		
+	}
+
+
+	public int search(Object a) {
+		
+	}
+	
+}

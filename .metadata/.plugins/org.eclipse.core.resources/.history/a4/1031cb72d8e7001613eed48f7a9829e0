@@ -1,0 +1,41 @@
+package queue;
+
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.ListIterator;
+import java.util.Queue;
+import static java.lang.System.*;
+
+public class PalinList {
+	
+	public static void main(String args[]){
+		Queue<String> q = new LinkedList<String>();
+		q.add(67);
+		q.add(34);
+		q.add(12);
+
+		out.println(q);   //outs [67, 34, 12 ]
+
+		out.println(q.remove());	//outs 67
+
+		out.println(q.remove());	//outs 34
+
+	}
+	
+	public static boolean isPalin(Queue<Integer> q){
+		boolean z=true;
+		ListIterator<Integer> iter = q.iterator();
+		while(iter.hasNext()){
+			iter.next();
+		}
+		while(iter.){
+			if(q.poll().equals(q)){
+				
+			}
+		}
+		return z;
+	}
+	
+	
+	
+}

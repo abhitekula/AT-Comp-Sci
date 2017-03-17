@@ -1,0 +1,43 @@
+package pqueue;
+
+import java.util.PriorityQueue;
+
+public class Patient implements Comparable<Patient>{
+	
+	private String name;
+	private int priority;
+	
+	
+
+	public Patient(String name, int priority) {
+		this.name = name;
+		this.priority = priority;
+	}
+	
+	
+
+	public static void main(String[] args) {
+		PriorityQueue<Patient> list = new PriorityQueue<Patient>();
+		
+
+	}
+
+
+	
+
+	public int getPriority() {
+		return priority;
+	}
+
+
+
+	@Override
+	public int compareTo(Patient a) {
+		if(priority<a.getPriority())
+			return -1;
+		else if(priority>a.getPriority())
+			return 1;
+		else return 0;
+	}
+
+}

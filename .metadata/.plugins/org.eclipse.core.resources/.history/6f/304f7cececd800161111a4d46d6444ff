@@ -1,0 +1,71 @@
+package linkedlist;
+
+import java.util.*;
+
+
+public class HistoList
+{
+   private HistoNode front;
+
+	public HistoList( )
+	{
+		front = null;
+	}
+
+	//addLetter will add a new node to the front for let if let does not exist
+	//addLetter will bump up the count if let already exists
+	public void addLetter(char let)
+	{	
+		HistoNode prev= new HistoNode();
+		boolean go=true;
+		if(exists(let))
+		{
+			while(go)
+			{
+				if(front.getLetter()==let)
+					front.count();
+				else{
+					if(front!=null){
+						prev=front;
+						front=front.getNext();
+					}
+					else
+						go=false;
+				}
+			}
+		}
+		else{
+				
+				prev.setNext(new HistoNode(let,1,null));
+		}
+	}
+		
+	public boolean exists(char let){
+		boolean go=true;
+		while(go)
+		{
+			if(front!=null && front.getLetter() ==let){
+				go=false;
+				return true;
+			}
+			else{
+				if(front!=null)
+					front=front.getNext();
+				else
+					go=false;
+			}
+		}
+		return false;
+	}
+
+	//returns a string will all values from list
+	public String toString()
+	{
+		String output = "";
+		while(front!=null){
+			output+=front.getLetter() + " ";
+			front=front.getNext();
+		}
+		return output;
+	}
+}

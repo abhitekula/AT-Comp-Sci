@@ -1,0 +1,100 @@
+package stack;
+
+import java.util.ArrayList;
+import java.util.ListIterator;
+
+public class ArrayQueue implements MyQueue {
+
+	private Object[] data;
+
+	public ArrayQueue() {
+		data = new Object[0];
+	}
+
+	@Override
+	public boolean empty() {
+		if (data.length == 0)
+			return true;
+		else
+			return false;
+	}
+
+	@Override
+	public boolean offer(Object item) {
+		Object[] temparr = new Object[data.length+1];
+		for(int x=0;x<temparr.length;x++){
+			if(x<temparr.length-1)
+				temparr[x]=data[x];
+			else
+				temparr[x]=item;
+		}
+		data=temparr;
+		return true;
+	}
+
+	@Override
+	public Object poll() {
+		if(empty())
+			return null;
+		else{
+			Object temp = data[0];
+			Object[] temparr = new Object[data.length-1];
+			for(int x=0;x<temparr.length;x++){
+				temparr[x]=data[x+1];
+			}
+			data=temparr;
+			return temp;
+		}
+	}
+
+	@Override
+	public Object peek() {
+		if(empty())
+			return null;
+		else{
+			return data[0];
+		}
+	}
+
+	public ArrayQueue alternate(ArrayQueue queue) {
+		Object[] temparr = new Object[data.length+queue.length()];
+		for(int x=0;x<temparr.length;x++){
+			if(x<data.length && x%2==0)
+				temparr[x]=data[x];
+			else if(x>=data.length && x%2==0)
+				temparr[x]=queue.getData()[x];
+			else
+			{
+				if(x<data.length)
+					
+			}
+		}
+		data=temparr;
+		return this;
+	}
+
+	private Object[] getData() {
+		return data;
+	}
+
+	public int length() {
+		return data.length;
+	}
+
+	public void append(ArrayQueue queue) {
+		Object[] temparr = new Object[data.length+queue.length()];
+		for(int x=0;x<temparr.length;x++){
+			//System.out.println(data[x]);
+			if(x<data.length)
+				temparr[x]=data[x]; 
+			else
+				temparr[x]=queue.getData()[x-data.length];
+		}
+		data=temparr;
+	}
+	
+	public String toString(){
+		return data.toString();
+	}
+
+}

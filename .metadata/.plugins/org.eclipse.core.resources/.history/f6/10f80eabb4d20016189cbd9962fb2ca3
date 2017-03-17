@@ -1,0 +1,11 @@
+package stack;
+
+import static java.lang.System.*;
+
+public class StackTestRunner
+{
+	public static void main ( String[] args )
+	{
+				
+	}
+}

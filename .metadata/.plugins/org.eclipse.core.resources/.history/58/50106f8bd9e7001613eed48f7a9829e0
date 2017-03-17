@@ -1,0 +1,9 @@
+package queue;
+
+public class PalinListTester {
+
+	public static void main(String[] args) {
+		
+	}
+
+}

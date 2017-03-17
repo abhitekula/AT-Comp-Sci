@@ -1,0 +1,18 @@
+package stack;
+
+import static java.lang.System.*;
+
+public class StackTestRunner
+{
+	public static void main ( String[] args )
+	{
+		String a="abcdefghi";
+		System.out.println(a);
+		StackTest test = new StackTest(a);
+		test.popEmAll();
+		System.out.println("\n");
+		a="12345678910";
+		test.setStack(a);
+		test.popEmAll();
+	}
+}

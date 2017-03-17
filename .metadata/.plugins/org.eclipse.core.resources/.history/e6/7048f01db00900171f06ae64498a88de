@@ -1,0 +1,76 @@
+package map;
+
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Scanner;
+import java.util.Set;
+
+public class Student {
+	   /**
+	   Prints the options menu and returns the letter that the user types does not check for invalid selection
+	      @return the next token on the input stream
+	   */
+	
+		static Scanner k = new Scanner(System.in);
+		static String name;
+		static String grade;
+		static Set<String> keys = new HashSet<String>();
+	
+	   public static void printMenuAndGetChoice(){
+		   System.out.println("Choose One of the Following Options:");
+	   }
+
+	   /**
+	      Prints the students and grades
+	      @param gradeMap the map to print
+	   */
+	   public static void printGrades(Map<String, String> gradeMap){
+		   keys=gradeMap.keySet();
+		   System.out.println("Student Grade List");
+		   for(String a : keys){
+			   System.out.println(a + ": " + gradeMap.get(a));
+		   }
+	   }
+
+	   /**
+	   Modifies an entry based on user input.  Prints an error if an invalid student is modified
+	      @param gradeMap the map to modify
+	   */
+	   public static void modifyStudent(Map<String, String> gradeMap){
+		   System.out.println("Enter Student's Name:");
+		   name = k.nextLine();
+		   System.out.println("Enter Student's New Grade:");
+		   grade = k.nextLine();
+		   if(gradeMap.containsKey(name))
+			   gradeMap.put(name, grade);
+		   else
+			   System.out.println("This student does not exist:");
+	   }
+
+	   /**
+	      Removes a student from the map based on user input
+	      @param gradeMap the map to remove the student from
+	   */
+	   public static void removeStudent(Map<String, String> gradeMap){
+		   System.out.println("Enter Name of Student to Remove:");
+		   name = k.nextLine();
+		   gradeMap.remove(name);
+	   }
+
+	   /**
+	      Adds a student based on user input.  Prints an error if a student
+	      is added that already exists in the map.
+	      @param gradeMap the map to add the student to
+	   */
+	   public static void addStudent(Map<String, String> gradeMap){
+		   System.out.println("Enter Student's Name:");
+		   name = k.nextLine();
+		   System.out.println("Enter Student's Grade:");
+		   grade = k.nextLine();
+		   if(!gradeMap.containsKey(name))
+			   gradeMap.put(name, grade);
+		   else
+			   System.out.println("This student has already been added to the map:");
+	   }
+ 
+}

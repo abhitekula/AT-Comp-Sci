@@ -1,0 +1,6 @@
+package set;
+
+public class CoinSet {
+	
+	private Coin[] cpoin
+}

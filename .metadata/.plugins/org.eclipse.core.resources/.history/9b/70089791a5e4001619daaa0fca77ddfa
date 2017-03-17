@@ -1,0 +1,10 @@
+package stack;
+
+public class StackMethodsTestor {
+
+	public static void main(String[] args) {
+		
+
+	}
+
+}

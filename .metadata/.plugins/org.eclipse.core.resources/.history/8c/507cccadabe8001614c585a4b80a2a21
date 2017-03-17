@@ -1,0 +1,13 @@
+package pqueue; 
+
+public class PQTestRunner
+{
+	public static void main ( String[] args )
+	{
+		String a = "enfield abhi charlie bob dick";
+		PQTester pqueue = new PQTester(a);
+		System.out.println("To String : " + pqueue);
+		System.out.println("Get Min : " + pqueue.getMin());
+		System.out.println("Get Natural Order: " + pqueue.getNaturalOrder());
+	}
+}
