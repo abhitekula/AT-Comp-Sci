@@ -12,7 +12,24 @@ public class CoinSet{
 	}
 
 	public boolean add(Coin x) {
-		if(!contains(x)){
+		boolean add;
+		add=true;
+		if(coins[x.hashCode()]!=null){
+			//Check if they have the same hashes
+			if(coins[x.hashCode()].hashCode()==x.hashCode()){
+			//Debug to detect and collisions
+			//Check if they are the same
+			if(!coins[x.hashCode()].equals(x)){
+				System.out.println("A Collision has been deteched between " + x + " and " + coins[x.hashCode()]);
+				add=false;
+			}
+			}
+		}
+		else
+			add=true;
+		
+		//Checks to see if that spot in the array is already taken
+		if(add){
 			coins[x.hashCode()]=x;
 		theSize++;	
 		return true;

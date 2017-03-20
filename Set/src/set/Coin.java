@@ -18,7 +18,8 @@ public class Coin {
 	}
 
 	public int hashCode() {
-		return Math.abs((value.charAt(0)*value.charAt(1)*(year/10)*2351351)%100);
+		int prime = 2351351;
+		return Math.abs((value.charAt(0)*value.charAt(1)*(year/10)*prime)%100);
 	}
 
 	public String toString() {
