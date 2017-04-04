@@ -1,65 +1,60 @@
 package map;
 
 import java.util.Map;
+import java.io.File;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
+import java.util.Map.Entry;
 import java.util.Scanner;
-import static java.lang.System.*;
+import java.io.IOException;
 
-public class Relatives
-{
+public class Relatives{
+	
 	private Map<String,Set<String>> map;
 
-	public Relatives()
-	{
+	public Relatives(File f)throws IOException{
 		map = new TreeMap<String,Set<String>>();
+		Scanner k = new Scanner(f);
+		int x=Integer.parseInt(k.nextLine());
+		
+		for(int i=0;i < x;i++){
+			setPersonRelative(k.nextLine().trim());
+		}
+		k.close();
 	}
 
-	public void setPersonRelative(String line)
-	{
-		Set<String> temp = new TreeSet<String>();
+	public void setPersonRelative(String line){
 		String[] personRelative = line.split(" ");
-		//System.out.println(personRelative[0]);
-		//System.out.println(personRelative[1]);
-		if(map.containsKey(personRelative[0])){
-				temp=map.get(personRelative[0]);
-				temp.add(personRelative[1]);
-				//System.out.println(temp);
-				map.replace(personRelative[0], temp);
+		Set<String> r = new TreeSet<String>();
+		if(!map.containsKey(personRelative[0])){
+			r.add(personRelative[1]);
+			map.put(personRelative[0], r);
 		}
 		else{
-			map.put(personRelative[0], new TreeSet<String>());
 			map.get(personRelative[0]).add(personRelative[1]);
-		}
-		if(map.containsKey(personRelative[1])){
-			temp=map.get(personRelative[1]);
-			//System.out.println(temp);
-			temp.add(personRelative[0]);
-			//System.out.println(temp);
-			map.replace(personRelative[1], temp);
-		}
-		else{
-			map.put(personRelative[0], new TreeSet<String>());
-			map.get(personRelative[0]).add(personRelative[1]);
+			map.put(personRelative[0],map.get(personRelative[0]));
 		}
 	}
 
-	public String getRelatives(String person)
-	{
-		return map.get(person).toString();
-	}
-
-	public String toString()
-	{
+	public String getRelatives(String person){
 		String output="";
-		Set<String> keys = map.keySet();
-		for(String key : keys){
-			//System.out.println(map.get(key));
-			output+="\n" + key + " is related to " + map.get(key);
+		
+		for(String s: map.get(person)){
+			output+=s+" ";
 		}
+		
 		return output;
-		//System.out.println(map);
 	}
-	
+
+	public String toString(){
+		String output="";
+		Set<Entry<String,Set<String>>> bob = map.entrySet();
+		
+		for(Entry<String,Set<String>> x : bob){
+			output+=x.getKey()+" is related to "+getRelatives(x.getKey())+"\n";
+		}
+		
+		return output;
+	}
 }
