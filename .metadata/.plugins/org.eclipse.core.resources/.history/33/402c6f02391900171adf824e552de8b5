@@ -1,0 +1,16 @@
+package maps;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.Scanner;
+import static java.lang.System.*;
+
+public class RelativesRunner{
+	
+	public static void main( String args[] ) throws IOException{
+		Relatives one = new Relatives(new File("C:\\Users\\Justin\\workspace\\Maps\\src\\maps\\relatives.dat"));
+		String x="Bob";
+		System.out.println(one);
+		System.out.println(x+" is related to "+one.getRelatives(x));
+	}
+}

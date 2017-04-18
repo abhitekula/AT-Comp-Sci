@@ -1,0 +1,58 @@
+package map;
+
+public class Student {
+	
+	private String fname;
+	private String lname;
+	private String grade;
+	private int id;
+	
+	public Student(String fname, String lname, String grade, int id) {
+		this.fname = fname;
+		this.lname=lname;
+		this.grade = grade;
+		this.id=id;
+	}
+
+
+	public String getFName() {
+		return fname;
+	}
+
+
+	public void setFName(String fname) {
+		this.fname = fname;
+	}
+
+	public String getLname() {
+		return lname;
+	}
+
+
+	public void setLname(String lname) {
+		this.lname = lname;
+	}
+	
+
+	public int getId() {
+		return id;
+	}
+
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+
+	public String getGrade() {
+		return grade;
+	}
+
+
+	public void setGrade(String grade) {
+		this.grade = grade;
+	}
+	
+	
+
+}

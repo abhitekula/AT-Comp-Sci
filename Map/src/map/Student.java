@@ -1,100 +1,71 @@
 package map;
 
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Scanner;
-import java.util.Set;
-
-public class Student {
-	   /**
-	   Prints the options menu and returns the letter that the user types does not check for invalid selection
-	      @return the next token on the input stream
-	   */
+public class Student implements Comparable<Student>{
 	
-		static Scanner k = new Scanner(System.in);
-		static String name;
-		static String grade;
-		static int ans;
-		static Set<String> keys = new HashSet<String>();
+	private String fname;
+	private String lname;
+	private int id;
 	
-	   public static void printMenuAndGetChoice(Map<String, String> gradeMap){
-		   System.out.println("Choose One of the Following Options:");
-		   System.out.println("1) Print Grades");
-		   System.out.println("2) Modify Student");
-		   System.out.println("3) Remove Student");
-		   System.out.println("4) Add Student");
-		   ans = Integer.parseInt(k.nextLine());
-		   switch(ans){
-		   		case 1:
-		   			printGrades(gradeMap);
-		   			break;
-		   		case 2:
-		   			printGrades(gradeMap);
-		   			break;
-		   		case 3:
-		   			printGrades(gradeMap);
-		   			break;
-		   		case 4:
-		   			printGrades(gradeMap);
-		   			break;
-		   		default:
-		   			System.out.println("Enter a valid choice:");
-		   			printMenuAndGetChoice(gradeMap);
-		   			break;
-		   }
-	   }
+	public Student(String fname, String lname, int id){
+		this.fname = fname;
+		this.lname=lname;
+		this.id=id;
+	}
 
-	   /**
-	      Prints the students and grades
-	      @param gradeMap the map to print
-	   */
-	   public static void printGrades(Map<String, String> gradeMap){
-		   keys=gradeMap.keySet();
-		   System.out.println("Student Grade List");
-		   for(String a : keys){
-			   System.out.println(a + ": " + gradeMap.get(a));
-		   }
-	   }
 
-	   /**
-	   Modifies an entry based on user input.  Prints an error if an invalid student is modified
-	      @param gradeMap the map to modify
-	   */
-	   public static void modifyStudent(Map<String, String> gradeMap){
-		   System.out.println("Enter Student's Name:");
-		   name = k.nextLine();
-		   System.out.println("Enter Student's New Grade:");
-		   grade = k.nextLine();
-		   if(gradeMap.containsKey(name))
-			   gradeMap.put(name, grade);
-		   else
-			   System.out.println("This student does not exist:");
-	   }
+	public String getFName() {
+		return fname;
+	}
 
-	   /**
-	      Removes a student from the map based on user input
-	      @param gradeMap the map to remove the student from
-	   */
-	   public static void removeStudent(Map<String, String> gradeMap){
-		   System.out.println("Enter Name of Student to Remove:");
-		   name = k.nextLine();
-		   gradeMap.remove(name);
-	   }
 
-	   /**
-	      Adds a student based on user input.  Prints an error if a student
-	      is added that already exists in the map.
-	      @param gradeMap the map to add the student to
-	   */
-	   public static void addStudent(Map<String, String> gradeMap){
-		   System.out.println("Enter Student's Name:");
-		   name = k.nextLine();
-		   System.out.println("Enter Student's Grade:");
-		   grade = k.nextLine();
-		   if(!gradeMap.containsKey(name))
-			   gradeMap.put(name, grade);
-		   else
-			   System.out.println("This student has already been added to the map:");
-	   }
- 
+	public void setFName(String fname) {
+		this.fname = fname;
+	}
+
+	public String getLname() {
+		return lname;
+	}
+
+
+	public void setLname(String lname) {
+		this.lname = lname;
+	}
+	
+
+	public int getId() {
+		return id;
+	}
+
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String toString(){
+		return lname + ", " + fname;
+	}
+
+
+	@Override
+	public int compareTo(Student a) {
+		if(this.lname.compareTo(a.lname)<0)
+			return -1;
+		else if(this.lname.compareTo(a.lname)>0)
+			return 1;
+		else{
+			if(this.fname.compareTo(a.fname)<0)
+				return -1;
+			else if(this.fname.compareTo(a.fname)>0)
+				return 1;
+			else{
+				if(this.id<a.id)
+					return -1;
+				else if(this.id>a.id)
+					return 1;
+				else
+					return 0;
+			}
+		}
+	}
+
 }

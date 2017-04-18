@@ -1,0 +1,15 @@
+package map;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class StudentRunnerPart2 {
+
+	public static void main(String[] args) {
+		Map<String, String> students = new HashMap<String, String>();
+		while(true){
+			StudentPart1.printMenuAndGetChoice(students);
+		}
+	}
+
+}

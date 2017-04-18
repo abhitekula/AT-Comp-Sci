@@ -1,60 +1,33 @@
 package map;
 
 import java.io.File;
-import java.io.IOException;
-import java.util.Map;
+import java.io.FileNotFoundException;
+import java.util.Map.Entry;
 import java.util.TreeMap;
 import java.util.Scanner;
-import static java.lang.System.*;
 
-public class PartList
-{
+public class PartList {
 	private TreeMap<Part, Integer> partsMap;
-	
-	public PartList()
-	{
 
-
+	public PartList(String fileName) throws FileNotFoundException {
+		Scanner file = new Scanner(new File(fileName));
+		partsMap = new TreeMap<Part, Integer>();
+		
+		while(file.hasNextLine()){
+			Part part = new Part(file.nextLine());
+			if(partsMap.containsKey(part))
+				partsMap.put(part, partsMap.get(part) + 1);
+			else
+				partsMap.put(part, 1);
+		}
+		
+		file.close();
 	}
-	
-	public PartList(String fileName)
-	{
-		this();
-		try
-		{
-			Scanner file = new Scanner(new File("lab08d.dat"));
-			//add code here to read from the file 
-			//and add Parts to the map
 
-
-
-
-		}
-		catch( IOException e )  //Most specific exceptions must be listed 1st
-		{
-			out.println(e);
-		}
-		catch( RuntimeException e )
-		{
-			out.println(e);
-		}
-		catch( Exception e )
-		{
-			out.println(e);
-		}
-		finally
-		{
-			//no code needed here
-		}
-	}
-	
-	public String toString()
-	{
-		String output="";
-
-
-
-
+	public String toString() {
+		String output = "";
+		for(Entry<Part, Integer> x : partsMap.entrySet())
+			output += x.getKey() + " \t-  " + x.getValue() + "\n";
 		return output;
 	}
 }
