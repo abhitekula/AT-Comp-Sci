@@ -30,22 +30,23 @@ public class Histogram{
 		}
 	}
 	
-	public String stars(int n){
-		if (n==1){
-			return "*";
+	public String multiply(int n){
+		String temp="";
+		for(int x=1;x<=n;x++){
+			temp+="*";
 		}
-		return "*"+stars(n-1);
+		return temp;
 	}
 
 	public String toString(){
 		String output="";
-		String allStars="";
-		Set<Entry<String, Integer>> bob = histogram.entrySet();
+		String Stars="";
+		Set<Entry<String, Integer>> set = histogram.entrySet();
 		
-		for(Entry<String, Integer> x : bob){
-			allStars=stars(x.getValue());
-			output+=x.getKey()+"\t"+allStars+"\n";
-			allStars="";
+		for(Entry<String, Integer> x : set){
+			Stars=multiply(x.getValue());
+			output+=x.getKey()+"\t"+Stars+"\n";
+			Stars="";
 		}
 		return output+"\n\n";
 	}
