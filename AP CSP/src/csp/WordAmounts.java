@@ -11,7 +11,6 @@ import java.util.Scanner;
 /**
  * @author Abhinav Tekulapally
  * @date 4/9/17
- *
  */
 public class WordAmounts {
 
@@ -21,10 +20,12 @@ public class WordAmounts {
 	private static String phrase;
 	private static Scanner temp;
 	private static String word;
+	//List of top 10 Most Occurring Words in English Language
+	private static final String[] top10 = {"the","be","to","of","and","a","in","that","have","i"};
 	
 	public static void main(String[] args) {
 		keyboard =  new Scanner(System.in);
-		System.out.println("Enter the filename:");
+		System.out.println("Enter the filename of text document:");
 		filename = keyboard.next();
 		ArrayList<String> words = new ArrayList<String>();
 		ArrayList<Word> wordnumbers = new ArrayList<Word>();
@@ -32,8 +33,14 @@ public class WordAmounts {
 		wordnumbers.add(tempword);
 		String a ="",b="",c="",d="",e="";
 		try{
+			//Algorithm to find number of occurrences of each word, sort by number of occurrences,
+			//and compare to top 10 most occurring words in English Language
+			
+			
 			File file = new File(filename);
 			input = new Scanner(file);
+			
+			//Algorithm to remove spaces, and punctuation
 			while(input.hasNextLine()){
 				phrase = input.nextLine();
 				phrase = phrase.toLowerCase();
@@ -45,6 +52,8 @@ public class WordAmounts {
 					
 					
 				//System.out.println(e);
+				
+				//Adds all words to an ArrayList
 				temp = new Scanner(e);
 				while(temp.hasNext()){
 					word=temp.next();
@@ -54,6 +63,7 @@ public class WordAmounts {
 					
 			}
 			
+			//Sorts all words in Words ArrayList into Words objects with the word and its number of occurrences
 			String temp;
 			boolean bool=false;
 			for(int x=0;x<words.size();x++){
@@ -72,11 +82,12 @@ public class WordAmounts {
 			}
 			wordnumbers.remove(0);
 			
-			//sort by number of occurences
+			//Sort by number of occurrences from greatest to least
 			wordnumbers=sort(wordnumbers);
-			
 			words.remove(words.size()-1);
-			//print results
+			
+			//Print results
+			System.out.println("Top 30 Most Occuring Words in Document:");
 			if(wordnumbers.size()>=30){
 			for(int z=0;z<30;z++){
 				System.out.println("" + (z+1) + ") " + wordnumbers.get(z).getWord() + "\t" + (wordnumbers.get(z).getNumber()-1));
@@ -87,8 +98,27 @@ public class WordAmounts {
 					System.out.println("" + (z+1) + ") " + wordnumbers.get(z).getWord() + "\t" + (wordnumbers.get(z).getNumber()-1));
 				}
 			}
-			System.out.println("\n\nCount:"+(words.size()));
-			System.out.println("\n\nUnique Count:"+(count(wordnumbers)));
+			System.out.println("\n\nTotal Number of Words:"+(words.size()));
+			System.out.println("Number of Unique Words:"+(count(wordnumbers)));
+			
+			System.out.println("\n\nTop 10 Words in English Language");
+			for(String top : top10){
+				System.out.println(top);
+			}
+			
+			int numInTop10=0;
+			if(wordnumbers.size()>=10){
+			System.out.println("\n\nWords found in Top 10 words in English Language and top 10 Words in input document:");
+				for(int z=0;z<10;z++){
+					if(inTop10(wordnumbers.get(z).getWord())){
+						System.out.println(wordnumbers.get(z).getWord());
+						numInTop10++;
+					}
+				}
+			System.out.println("\nNumber of Words in Document Top 10 and English Language Top 10:");
+			System.out.println(numInTop10);
+			}
+
 			
 		} catch(FileNotFoundException f){
 			System.out.println("File not Found");
@@ -114,8 +144,6 @@ public class WordAmounts {
 			}
 		}
 		temp.remove(temp.size()-1);
-		
-	
 		return temp;
 	}
 	
@@ -126,6 +154,15 @@ public class WordAmounts {
 				a++;
 		}
 		return a;
+	}
+	
+	private static boolean inTop10(String word){
+		boolean bool=false;
+		for(String a : top10){
+			if(a.equals(word))
+				bool=true;
+		}
+		return bool;
 	}
 
 
