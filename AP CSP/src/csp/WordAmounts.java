@@ -26,7 +26,7 @@ public class WordAmounts {
 	public static void main(String[] args) {
 		keyboard =  new Scanner(System.in);
 		System.out.println("Enter the filename of text document:");
-		filename = keyboard.next();
+		filename = keyboard.nextLine();
 		ArrayList<String> words = new ArrayList<String>();
 		ArrayList<Word> wordnumbers = new ArrayList<Word>();
 		Word tempword = new Word("temporary");
