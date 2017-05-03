@@ -1,13 +1,13 @@
 package hashtable;
 
+
 public class Number
 {
 	private int theValue;
 	
 	public Number(int value)
 	{
-
-
+		theValue = value;
 	}	
 	
 	public int getValue()
@@ -17,16 +17,17 @@ public class Number
 	
 	public boolean equals(Object obj)
 	{
-		return false;
+		Number o = (Number)obj;
+		return o.getValue() == this.getValue();
 	} 
 	
 	public int hashCode()
 	{
-		return 0;
+		return this.getValue() % 10;
 	}
 
 	public String toString()
 	{
-		return "";
+		return this.getValue() + "";
 	}	
 }

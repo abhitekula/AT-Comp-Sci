@@ -13,6 +13,6 @@ public class NumberTester
 		
 		Number three = new Number(213);
 		System.out.println(three.hashCode());		
-		HashTable table = new HashTable();
+		HashTableInteger table = new HashTableInteger();
 	}
 }
