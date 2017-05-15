@@ -36,7 +36,6 @@ public class WordAmounts {
 			//Algorithm to find number of occurrences of each word, sort by number of occurrences,
 			//and compare to top 10 most occurring words in English Language
 			
-			
 			File file = new File(filename);
 			input = new Scanner(file);
 			
@@ -49,7 +48,6 @@ public class WordAmounts {
 				c=b.replaceAll("\'", "");
 				d=c.replaceAll("\'s", "");
 				e=d.replaceAll("!", "");
-					
 					
 				//System.out.println(e);
 				

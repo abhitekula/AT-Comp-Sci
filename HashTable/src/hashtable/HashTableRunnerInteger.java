@@ -14,16 +14,19 @@ public class HashTableRunnerInteger
 			Scanner name = new Scanner(System.in);
 			System.out.println("Enter filename:");
 			Scanner in = new Scanner(new File(name.nextLine()));
-			int cap = Integer.parseInt(in.nextLine());
-			for(int i = 0; i < cap; i++)
+
+			int size = Integer.parseInt(in.nextLine());
+			for(int i = 0; i < size; i++){
 				table.add(in.nextInt());
-			
+			}
 			System.out.println(table);
+			name.close();
 			in.close();
 		}
 		catch(Exception e)
 		{
 			System.out.println("Houston, we have a problem!");
+			System.out.println(e);
 		}
   }
 }

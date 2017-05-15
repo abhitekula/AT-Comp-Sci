@@ -13,6 +13,11 @@ public class Student implements Comparable<Student>{
 	}
 
 
+	public Student() {
+		
+	}
+
+
 	public String getFName() {
 		return fname;
 	}
@@ -42,7 +47,7 @@ public class Student implements Comparable<Student>{
 	}
 
 	public String toString(){
-		return lname + ", " + fname;
+		return fname + " " + lname;
 	}
 
 
