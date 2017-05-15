@@ -25,6 +25,7 @@ public class HashTableRunnerInteger
 		catch(Exception e)
 		{
 			System.out.println("Houston, we have a problem!");
+			System.out.println(e);
 		}
   }
 }

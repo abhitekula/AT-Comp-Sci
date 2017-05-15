@@ -5,6 +5,7 @@ import java.util.Map;
 
 public class TeamMap {
 	
+	//Name, Weight Group
 	private Map<Wrestler, Integer> team;
 	
 	public TeamMap(){
@@ -16,13 +17,15 @@ public class TeamMap {
 	}
 
 	public String get(Wrestler juan) {
-		// TODO Auto-generated method stub
-		return null;
+		return "" + team.get(juan);
 	}
 
 	public void changeWeightGroup(Wrestler juan, int i) {
-		// TODO Auto-generated method stub
-		
+		team.put(juan, i);
+	}
+	
+	public String toString(){
+		return team.toString();
 	}
 
 }

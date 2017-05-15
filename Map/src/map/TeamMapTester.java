@@ -25,7 +25,7 @@ System.out.println(a);
 
 a.changeWeightGroup(juan,10);
 
-System.out.println("Juan is in Weight Group " +a.get(juan));
+System.out.println("\nJuan is in Weight Group " +a.get(juan));
 
 System.out.println();
 
