@@ -10,8 +10,9 @@ public class PhoneEntry implements Comparable{
 		this.number = number;
 	}
 	
-	public int hashcode(){
-		return number;
+	public PhoneEntry(String name) {
+		this.name = name;
+		this.number = 0;
 	}
 
 	public String getName() {
@@ -20,6 +21,27 @@ public class PhoneEntry implements Comparable{
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public int hashcode() {
+		return name.hashCode();
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		PhoneEntry other = (PhoneEntry) obj;
+		if (name == null) {
+			if (other.name != null)
+				return false;
+		} else if (!name.equals(other.name))
+			return false;
+		return true;
 	}
 
 	public Integer getNumber() {
@@ -48,5 +70,12 @@ public class PhoneEntry implements Comparable{
 		else
 			return -1;
 	}
+
+	@Override
+	public String toString() {
+		return "[Name=" + name + ", Number=" + number + "]";
+	}
+	
+	
 
 }
