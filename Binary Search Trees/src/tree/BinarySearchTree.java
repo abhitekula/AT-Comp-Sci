@@ -12,7 +12,7 @@ public class BinarySearchTree
 		root = null;
 	}
 	
-	private TreeNode getRoot(){
+	public TreeNode getRoot(){
 		return root;
 	}
 
@@ -40,7 +40,7 @@ public class BinarySearchTree
 	}
 
 	String output;
-   public String inOrder()
+    public String inOrder()
 	{
 	   	output="";
 	   	System.out.println("\n");
@@ -53,6 +53,23 @@ public class BinarySearchTree
 			inOrder(tree.getLeft());
 			output+=tree.getValue() + " ";
 			inOrder(tree.getRight());
+		}
+		return output;
+	}
+	
+	public String inOrderMultiLine()
+	{
+	   	output="";
+	   	System.out.println("\n");
+		return inOrderMultiLine(root);
+	}
+	
+	private String inOrderMultiLine(TreeNode tree)
+	{
+		if (tree != null){
+			inOrderMultiLine(tree.getLeft());
+			output+=tree.getValue() + "\n";
+			inOrderMultiLine(tree.getRight());
 		}
 		return output;
 	}
