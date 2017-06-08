@@ -23,7 +23,7 @@ public class PhoneTester
    	 book.display();
    	 System.out.println("Lookup Price: " + book.lookupNumber("Price"));
    	 System.out.println("\n\n");
-   	 System.out.println("Lookup Number: " + book.reverseLookup("984116"));
+   	 System.out.println("Lookup Number (9841116) : " + book.reverseLookup("9841116"));
    	 //book.display();
     }
 

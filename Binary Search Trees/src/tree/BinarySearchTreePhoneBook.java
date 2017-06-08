@@ -27,9 +27,9 @@ public class BinarySearchTreePhoneBook {
 		System.out.println(book.inOrderMultiLine());
 	}
 	
-	String number;
+	String output;
 	public String lookupNumber(String name) {
-		number = "Name does not exist.";
+		output = "Name does not exist.";
 		return lookupNumber(name, book.getRoot());
 	}
 	
@@ -39,15 +39,16 @@ public class BinarySearchTreePhoneBook {
 			if(tree.getValue() instanceof PhoneEntry)
 				temp=(PhoneEntry)tree.getValue();
 			if(temp.getName().equals(name)){
-				number = "" + temp.getNumber();
+				output = "" + temp.getNumber();
 			}
 			lookupNumber(name, tree.getLeft());
 			lookupNumber(name, tree.getRight());
 		}
-		return number;
+		return output;
 	}
 	
 	public String reverseLookup(String number) {
+		output = "Number does not exist.";
 		return reverseLookup(number, book.getRoot());
 	}
 	
@@ -57,12 +58,12 @@ public class BinarySearchTreePhoneBook {
 		if (tree != null){
 			if(tree.getValue() instanceof PhoneEntry)
 				temp=(PhoneEntry)tree.getValue();
-			if(temp.getNumber().equals(number))
-				return "" + temp.getName();
-			lookupNumber(number, tree.getLeft());
-			lookupNumber(number, tree.getRight());
+			if(temp.getNumber()==Integer.parseInt(number))
+				output = temp.getName();
+			reverseLookup(number, tree.getLeft());
+			reverseLookup(number, tree.getRight());
 		}
-		return null;
+		return output;
 	}
 	
 	public void delete(String name){
