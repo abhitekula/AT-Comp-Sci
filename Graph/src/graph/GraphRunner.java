@@ -9,12 +9,14 @@ public class GraphRunner
 {
 	public static void main( String[] args ) throws IOException
 	{
-		Scanner file = new Scanner(new File("graph1.dat"));
+		//"H:/Eclipse Workspace/Graph/src/graph/graph1.dat"
+		Scanner file = new Scanner(new File("H:/Eclipse Workspace/Graph/src/graph/graph1.dat"));
 		int howManyTimes = file.nextInt();
 		file.nextLine();
 		for(int x=0; x<howManyTimes; x++)
 		{
-			//add code here
+			Graph graph = new Graph(file.nextLine());
+			graph.check(file.nextLine());
 		}
 	}
 }
