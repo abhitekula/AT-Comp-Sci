@@ -30,14 +30,21 @@ public class Heap
 	{
 		list.set(0,list.get(list.size()-1));
 		list.remove(list.size()-1);
-		swapDown(list.size());
+		swapDown(0);
 	}
 
 	public void swapDown(int top)
 	{
 		while(list.get(top)<list.get(top*2) && list.get(top)<list.get(top*2+1) && top<list.size()){
-			   swap(bot,bot/2);
-			   bot/=2;
+			   if(top*2>top*2+1){
+				swap(top,top*2);
+				top*=2;
+			   }
+			   else{
+				 swap(top,top*2+1);
+				 top*=2;
+				 top++;
+			   }
 		  }
 	}
 	
@@ -51,7 +58,7 @@ public class Heap
 	public void print()
 	{
 		out.println("\n\nPRINTING THE HEAP!\n\n");
-		out.println();
+		System.out.println(list);
 	}
 
 	public String toString()
